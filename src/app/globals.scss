@@ -1,0 +1,299 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url("https://fonts.googleapis.com/css2?family=Jura:wght@300..700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Jura:wght@300..700&display=swap");
+
+:root {
+  --main-50: hsla(198, 100%, 42%, 0.508);
+  --main-100: hsl(198, 100%, 42%);
+  --main-600: hwb(198 0% 32%);
+  --main-800: hsla(212, 97%, 13%, 0.803);
+  --main-900: rgb(1, 31, 65);
+}
+
+body {
+  font-family: "Inter", sans-serif;
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
+
+.zoom-container {
+  overflow: hidden;
+  .radial-spot {
+  }
+  .zoom-image {
+    transform: scale(1);
+
+    animation: zoomInOut 30s infinite ease-in;
+  }
+}
+@keyframes zoomInOut {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.4);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 0 0% 3.9%;
+    --card: 0 0% 100%;
+    --card-foreground: 0 0% 3.9%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 0 0% 3.9%;
+    --primary: 0 0% 9%;
+    --primary-foreground: 0 0% 98%;
+    --secondary: 0 0% 96.1%;
+    --secondary-foreground: 0 0% 9%;
+    --muted: 0 0% 96.1%;
+    --muted-foreground: 0 0% 45.1%;
+    --accent: 0 0% 96.1%;
+    --accent-foreground: 0 0% 9%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 0 0% 89.8%;
+    --input: 0 0% 89.8%;
+    --ring: 0 0% 3.9%;
+    --chart-1: 12 76% 61%;
+    --chart-2: 173 58% 39%;
+    --chart-3: 197 37% 24%;
+    --chart-4: 43 74% 66%;
+    --chart-5: 27 87% 67%;
+    --radius: 0.5rem;
+  }
+  .dark {
+    --background: 0 0% 3.9%;
+    --foreground: 0 0% 98%;
+    --card: 0 0% 3.9%;
+    --card-foreground: 0 0% 98%;
+    --popover: 0 0% 3.9%;
+    --popover-foreground: 0 0% 98%;
+    --primary: 0 0% 98%;
+    --primary-foreground: 0 0% 9%;
+    --secondary: 0 0% 14.9%;
+    --secondary-foreground: 0 0% 98%;
+    --muted: 0 0% 14.9%;
+    --muted-foreground: 0 0% 63.9%;
+    --accent: 0 0% 14.9%;
+    --accent-foreground: 0 0% 98%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 0 0% 14.9%;
+    --input: 0 0% 14.9%;
+    --ring: 0 0% 83.1%;
+    --chart-1: 220 70% 50%;
+    --chart-2: 160 60% 45%;
+    --chart-3: 30 80% 55%;
+    --chart-4: 280 65% 60%;
+    --chart-5: 340 75% 55%;
+  }
+}
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+.shadow {
+  &_circle {
+    box-shadow: 0px 4px 40px 0px #007aad4d;
+  }
+  &_card {
+    box-shadow: 0px 0px 20px 0px #0000001c;
+  }
+  &_accordion{
+    box-shadow: 0px 0px 14px 0px rgba(0,0,0,0.1);
+  }
+}
+
+.font {
+  &_jura {
+    font-family: "Jura", sans-serif;
+  }
+  &_inter {
+    font-family: "Inter", sans-serif;
+  }
+}
+section {
+  .sec {
+    &_wrap {
+      margin: auto;
+      padding-block: 70px;
+ @media screen and (max-width: 1200px) {
+      padding-block: 50px;
+    }
+    @media screen and (max-width: 500px) {
+      padding-block: 30px;
+    }
+      h2 {
+        @apply capitalize text-xl  sm:text-2xl  lg:text-3xl font-bold mb-3 text-center text-[#363636];
+      }
+      p {
+        @apply text-[#8D8D8D] text-sm mb-7 text-center;
+      }
+    }
+    &_btn {
+      @apply text-main shadow_circle  rounded-md py-2.5  bg-white hover:text-[#D70000] duration-300 ease-in-out cursor-pointer flex items-center justify-center gap-2 font-medium;
+    }
+    
+  }
+  .padd {
+    padding-inline: 100px;
+    @media screen and (max-width: 1200px) {
+      padding-inline: 50px;
+    }
+    @media screen and (max-width: 500px) {
+      padding-inline: 30px;
+    }
+  }
+}
+
+.gradient {
+  &_border {
+    border: 3px solid transparent;
+    border-image: linear-gradient(to right bottom, #064f6f, var(--main-800));
+    border-image-slice: 1;
+    @apply hover:animate-gradient-x;
+  }
+}
+
+.fansy {
+  &_border {
+    border: 1px solid rgba(255, 255, 255, 0.224);
+    border-radius: 22% 78% 59% 41% / 61% 77% 23% 39%;
+  }
+}
+@layer utilities {
+  .animate-gradient-x {
+    background-size: 200% 200%;
+    animation: gradient-x 3s ease;
+  }
+  @keyframes gradient-x {
+    0% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+    100% {
+      background-position: 0% 50%;
+    }
+  }
+}
+
+.cylinder {
+  position: relative;
+  overflow: hidden;
+  width: 170px;
+  border-radius: 80px/20px;
+
+  &:before {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 170px;
+    height: 40px;
+    border-radius: 80px/20px;
+    content: "";
+  }
+
+  &_1 {
+    @apply bg-[linear-gradient(to_right,#FCBF90,#ED8357)];
+    height: 250px;
+    margin: 0 -15px;
+
+    &::before {
+      background-color: #f07c48;
+    }
+    .points:first-child {
+      @apply text-[#5B3303];
+    }
+  }
+  &_2 {
+    @apply bg-[linear-gradient(to_right,#FED778,#F9A441)];
+    height: 300px;
+
+    &::before {
+      background-color: #ea9429;
+    }
+    .points:first-child {
+      @apply text-[#862F08];
+    }
+  }
+  &_3 {
+    @apply bg-[linear-gradient(to_right,#D1D1D1,#6B6B6B)] -z-10;
+    height: 260px;
+    margin-left: -15px;
+
+    &::before {
+      background-color: #dcdcdc;
+    }
+    .points:first-child {
+      @apply text-[#3C3C3C];
+    }
+  }
+
+  .points {
+    @apply absolute top-1/2 -translate-y-1/2  left-1/2 -translate-x-1/2  flex flex-col items-center justify-center font-bold;
+    .circle {
+      @apply rounded-full size-[4.5rem] bg-white bg-opacity-25 flex flex-col items-center justify-center;
+      &_1 {
+        @apply text-[#BE7926];
+      }
+      &_2 {
+        @apply text-[#CC5F2E];
+      }
+      &_3 {
+        @apply text-[#747474];
+      }
+    }
+  }
+
+  &_image {
+    @apply absolute -top-10 left-1/2 -translate-x-1/2 z-20 border-[3px]   rounded-full;
+    &_1 {
+      @apply border-[#FDCD6D];
+    }
+    &_2 {
+      @apply border-[#FAB88A];
+    }
+    &_3 {
+      @apply border-[#6E6E6E];
+    }
+  }
+}
+
+.swiper-button {
+  &-prev,
+  &-next {
+    background-color: rgba(128, 128, 128, 0.196);
+    border-radius: 10px;
+  }
+  &-prev::after,
+  &-next::after {
+    content: "";
+    color: gray;
+    font-size: 12px !important;
+    font-weight: 900;
+  }
+}
+.wave{
+  @apply bg-white ;
+   width: 250px;
+    height: 100px;
+    border-radius: 100px/50px;
+}
